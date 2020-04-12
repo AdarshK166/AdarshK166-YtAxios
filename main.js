@@ -14,7 +14,7 @@ function getTodos() {
         }
       }
     )
-    .then(res => showOutput(res))
+    .then(res => showOutput(res))                    
     .catch(err => console.error(err));
 }
 
@@ -22,9 +22,9 @@ function showOutput(res) {
   window.res = res;
   var stext = document.getElementById("ytSearch").value;
   document.getElementById("res1").innerHTML = "";
-  for (var i = 0; i <= 5; i++) {
+  for (var i = 0; i <= res.data.items.length; i++) {
     document.getElementById("res1").innerHTML += `
-  <div id=${i} class="resultsDiv" onclick="openLink(id) style="cursor: pointer"">
+  <div id=${i} class="resultsDiv" onclick="openLink(id) ">
   <p>
   <img class="thumbImg" style="vertical-align:middle" src="http://img.youtube.com/vi/${res.data.items[i].id.videoId}/sddefault.jpg" alt="alt image" width="100">
   <span>${res.data.items[i].snippet.title}</span>
